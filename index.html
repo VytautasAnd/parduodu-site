@@ -11,6 +11,13 @@
 
     <link rel="canonical" href="https://www.parduodu.com">
 
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
     <!-- Open Graph -->
     <meta property="og:title" content="Parduodu.com – Lietuvos NT rinka">
     <meta property="og:description"
@@ -45,109 +52,193 @@
 
     <style>
         :root {
-            --bg: #f4f7fb;
-            --card: #ffffff;
-            --text: #172033;
-            --muted: #5f6b82;
-            --accent: #23a8a8;
-            --border: #dbe3ef;
+            --text-main: #565b63;
+            --text-soft: #7b818a;
+            --overlay: rgba(255, 255, 255, 0.58);
         }
 
         * {
             box-sizing: border-box;
         }
 
+        html,
         body {
             margin: 0;
-            font-family: Inter, "Segoe UI", sans-serif;
-            background: linear-gradient(180deg, #f7fafc 0%, #eef3f8 100%);
-            color: var(--text);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 32px;
+            min-height: 100%;
         }
 
-        .container {
-            width: 100%;
-            max-width: 760px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 48px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.05);
+        body {
+            font-family: "Segoe UI", Inter, Arial, sans-serif;
+            color: var(--text-main);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.38) 0%,
+                    rgba(255, 255, 255, 0.18) 45%,
+                    rgba(255, 255, 255, 0.42) 100%
+                ),
+                url("/background-nt.jpg");
+
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .page {
+            position: relative;
+            min-height: 100vh;
+            padding: 48px 56px;
         }
 
         .logo {
-            width: 120px;
-            margin-bottom: 40px;
+            position: absolute;
+            top: 48px;
+            left: 56px;
+            z-index: 5;
+        }
+
+        .logo img {
+            width: 122px;
+            height: auto;
+            display: block;
+        }
+
+        .content {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+        }
+
+        .message {
+            max-width: 980px;
+            margin-top: -30px;
         }
 
         h1 {
             margin: 0;
-            font-size: clamp(2rem, 5vw, 3.8rem);
-            line-height: 1.1;
-            letter-spacing: -0.03em;
+
+            font-weight: 300;
+
+            font-size: clamp(2.5rem, 5vw, 5rem);
+
+            line-height: 1.22;
+
+            letter-spacing: 0.035em;
+
+            color: rgba(74, 78, 86, 0.88);
+
+            text-shadow:
+                0 1px 1px rgba(255,255,255,0.35);
         }
 
-        .subtitle {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: var(--muted);
-            line-height: 1.7;
+        .divider {
+            width: 82px;
+            height: 1px;
+
+            margin: 42px auto 34px;
+
+            background: rgba(88, 92, 100, 0.42);
         }
 
-        .pill {
-            display: inline-block;
-            margin-top: 28px;
-            padding: 10px 18px;
-            border-radius: 999px;
-            background: rgba(35, 168, 168, 0.1);
-            color: var(--accent);
-            font-size: 0.92rem;
-            font-weight: 600;
+        .status {
+            margin: 0;
+
+            font-size: clamp(0.82rem, 1.15vw, 1rem);
+
+            letter-spacing: 0.42em;
+
+            text-transform: uppercase;
+
+            color: rgba(90, 95, 102, 0.72);
+
+            font-weight: 500;
         }
 
-        .footer {
-            margin-top: 42px;
-            font-size: 0.95rem;
-            color: var(--muted);
+        .seo-text {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
-        @media (max-width: 640px) {
-            .container {
-                padding: 36px 24px;
+        @media (max-width: 768px) {
+            body {
+                background-position: center bottom;
             }
 
-            .subtitle {
-                font-size: 1.05rem;
+            .page {
+                padding: 28px;
+            }
+
+            .logo {
+                top: 28px;
+                left: 28px;
+            }
+
+            .logo img {
+                width: 104px;
+            }
+
+            .message {
+                margin-top: -12px;
+            }
+
+            h1 {
+                letter-spacing: 0.015em;
+            }
+
+            .status {
+                letter-spacing: 0.26em;
             }
         }
     </style>
 </head>
+
 <body>
-    <main class="container">
-        <!-- existing SVG logo -->
-        <img src="/logo.svg" alt="Parduodu.com logotipas" class="logo">
 
-        <div class="pill">
-            Lietuvos NT rinka
-        </div>
+<div class="page">
 
-        <h1>
-            NT skelbimai, kainos ir rinkos duomenys
-        </h1>
+    <header class="logo" aria-label="Parduodu.com">
+        <img src="/logo.svg" alt="Parduodu.com logotipas">
+    </header>
 
-        <p class="subtitle">
-            Parduodu.com kuriamas kaip moderni Lietuvos nekilnojamojo turto platforma —
-            nuo skelbimų iki rinkos analizės ir NT tendencijų.
-        </p>
+    <main class="content">
 
-        <div class="footer">
-            Netrukus startuojame.
-        </div>
+        <section class="message" aria-labelledby="main-title">
+
+            <h1 id="main-title">
+                NT skelbimai,<br>
+                kainos ir rinkos duomenys
+            </h1>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <p class="status">
+                Tinklapis kuriamas
+            </p>
+
+            <p class="seo-text">
+                Parduodu.com kuriamas kaip Lietuvos nekilnojamojo turto platforma:
+                NT skelbimai, kainų tendencijos ir rinkos duomenys vienoje vietoje.
+            </p>
+
+        </section>
+
     </main>
+
+</div>
+
 </body>
 </html>
